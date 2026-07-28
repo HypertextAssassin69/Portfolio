@@ -275,7 +275,7 @@ export const Hero = () => {
           </a>
 
           <a
-            href="https://github.com"
+            href="https://github.com/HypertextAssassin69/Portfolio"
             target="_blank"
             rel="noopener noreferrer"
             className="hero-btn hero-btn-secondary"
