@@ -30,13 +30,13 @@ venv/
 ENV/
 
 # Python scripts and raw assets
-*.py
-*_raw.jpg
-*table.png
-*Portal.png
-lamma.png
-llama-nobg.png
-nether-portal-nobg.png
-enchanting-table-nobg.png
-recovery-codes-vercel.txt
+/*.py
+/*_raw.jpg
+/enchanting table.png
+/NetherPortal.png
+/lamma.png
+/llama-nobg.png
+/nether-portal-nobg.png
+/enchanting-table-nobg.png
+/recovery-codes-vercel.txt
 
