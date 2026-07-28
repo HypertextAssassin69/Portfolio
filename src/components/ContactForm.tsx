@@ -23,7 +23,7 @@ export const ContactForm: React.FC = () => {
     setStatus('sending');
 
     try {
-      const response = await fetch('https://formspree.io/f/xpwzgbbv', {
+      const response = await fetch('https://formspree.io/f/xzdnoaap', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(formData),
