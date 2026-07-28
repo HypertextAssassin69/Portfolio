@@ -1,17 +1,48 @@
 /* Marquee Section Styles */
 .marquee-section {
   background-color: #000000;
-  padding: 4rem 0;
+  height: 340px;
   width: 100%;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-top: 1px solid rgba(255, 87, 34, 0.15);
   border-bottom: 1px solid rgba(255, 87, 34, 0.15);
 }
 
+.marquee-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 87, 34, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.marquee-section .marquee-row-container {
+  position: absolute;
+  width: 110%;
+  left: -5%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+/* Row 1 (scrolling left, tilted down-right) */
+.marquee-section .marquee-row-container:nth-of-type(1) {
+  transform: rotate(-4.5deg) translateY(-25px);
+  z-index: 2;
+}
+
+/* Row 2 (scrolling right, tilted up-right) */
+.marquee-section .marquee-row-container:nth-of-type(2) {
+  transform: rotate(4.5deg) translateY(25px);
+  z-index: 1;
+}
+
+/* General Row Container (e.g. standalone under projects grid) */
 .marquee-row-container {
   position: relative;
   width: 100%;
@@ -121,3 +152,19 @@
 .marquee-row-container:hover .portal-frame {
   filter: drop-shadow(0 0 30px rgba(170, 59, 255, 0.7));
 }
+
+/* Counter-rotations for portals inside .marquee-section to keep them vertical */
+.marquee-section .marquee-row-container:nth-of-type(1) .portal-left {
+  transform: translateY(-50%) rotate(4.5deg);
+}
+.marquee-section .marquee-row-container:nth-of-type(1) .portal-right {
+  transform: translateY(-50%) scaleX(-1) rotate(4.5deg);
+}
+
+.marquee-section .marquee-row-container:nth-of-type(2) .portal-left {
+  transform: translateY(-50%) scaleX(-1) rotate(-4.5deg);
+}
+.marquee-section .marquee-row-container:nth-of-type(2) .portal-right {
+  transform: translateY(-50%) scaleX(1) rotate(-4.5deg);
+}
+
