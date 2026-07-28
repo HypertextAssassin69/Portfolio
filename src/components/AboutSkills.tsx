@@ -31,7 +31,7 @@ export const AboutSkills: React.FC = () => {
           <span className="about-eyebrow">Background</span>
           <h2 className="about-title">About <span>Aarav Arya</span></h2>
           <p className="about-paragraph">
-            I am a B.Tech Electrical Engineering student at **IIT Mandi**, 
+            I am a B.Tech Electrical Engineering student at <strong>IIT Mandi</strong>, 
             deeply focused on the intersection of hardware, machine learning, 
             and algorithmic systems. My work spans from high-speed quantitative backtesting 
             models to low-level microcontroller firmware.
@@ -43,9 +43,10 @@ export const AboutSkills: React.FC = () => {
             and design hardware layouts for autonomous platforms.
           </p>
           <p className="about-paragraph">
-            At IIT Mandi, I collaborate with **Team Deimos** (the student rover division), 
-            leading the telemetry scripting, sensor node synchronization, and PCB layout configurations 
-            required for autonomous rover exploration.
+            At IIT Mandi, I am a member of <strong>Team Deimos</strong> (the student rover division) 
+            in the Life Sciences sub-team, where I train CNN models to classify rock samples 
+            (picrite, basal, basalt) and integrate multi-sensor arrays via Raspberry Pi 
+            for real-time geological and environmental telemetry.
           </p>
         </div>
 
