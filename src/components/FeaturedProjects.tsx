@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Marquee } from './Marquee';
+import { CaseStudyModal } from './CaseStudyModal';
 import './FeaturedProjects.css';
 
 interface Project {
@@ -9,6 +10,7 @@ interface Project {
   description: string;
   thumbnail: string;
   repoUrl: string;
+  tags: string[];
 }
 
 const projects: Project[] = [
@@ -17,60 +19,97 @@ const projects: Project[] = [
     title: "Paper Trader",
     description: "A paper trading simulation platform designed to backtest quantitative strategies, track portfolio metrics, and analyze algorithmic trading risk.",
     thumbnail: "/project_stocks.png",
-    repoUrl: "https://github.com/HypertextAssassin69/paper-trader"
+    repoUrl: "https://github.com/HypertextAssassin69/paper-trader",
+    tags: ["Python", "Pandas", "Backtesting", "Quant Finance"]
   },
   {
     id: 2,
     title: "Reddit Shorts Generator",
     description: "A video automation engine that parses popular Reddit threads, synthesizes text-to-speech audio, and compiles short-form video clips.",
     thumbnail: "/project_shorts.png",
-    repoUrl: "https://github.com/HypertextAssassin69/reddit-shorts-generator"
+    repoUrl: "https://github.com/HypertextAssassin69/reddit-shorts-generator",
+    tags: ["Python", "MoviePy", "gTTS", "REST APIs"]
   },
   {
     id: 3,
     title: "Offroad Semantic Segmentation",
     description: "A deep learning semantic segmentation model for classifying and segmenting path boundaries in offroad terrains to assist robotic rover nav.",
     thumbnail: "/project_rover.png",
-    repoUrl: "https://github.com/HypertextAssassin69/offroad-semantic-segmentation"
+    repoUrl: "https://github.com/HypertextAssassin69/offroad-semantic-segmentation",
+    tags: ["Python", "PyTorch", "OpenCV", "Computer Vision"]
   },
   {
     id: 4,
     title: "RPi Sensors (Team Deimos)",
     description: "A hardware-level library for reading and synchronizing environmental sensors with Raspberry Pi, built for the Team Deimos rover at IIT Mandi.",
     thumbnail: "/project_sensor.png",
-    repoUrl: "https://github.com/Team-Deimos-IIT-Mandi/Rpi_Sensors"
+    repoUrl: "https://github.com/Team-Deimos-IIT-Mandi/Rpi_Sensors",
+    tags: ["C++", "Raspberry Pi", "I2C / SPI", "POSIX Threads"]
   },
   {
     id: 5,
     title: "VeriSync",
     description: "A secure verification and data sync utility for cryptographic authentication, ledger integrity, and secure system communication.",
     thumbnail: "/enchanting-table-nobg.png",
-    repoUrl: "https://github.com/HypertextAssassin69/VeriSync"
+    repoUrl: "https://github.com/HypertextAssassin69/VeriSync",
+    tags: ["TypeScript", "Node.js", "Cryptography", "Express.js"]
   },
   {
     id: 6,
     title: "IIT Mandi Quant Fin & Algo",
     description: "A collaborative quantitative finance repository containing automated trading algorithms, financial models, and quantitative backtesting.",
     thumbnail: "/project_stocks.png",
-    repoUrl: "https://github.com/HypertextAssassin69/IItMandiQuantFinAndAlgo"
+    repoUrl: "https://github.com/HypertextAssassin69/IItMandiQuantFinAndAlgo",
+    tags: ["Python", "Jupyter", "SciPy", "Statsmodels"]
   }
 ];
 
 // Reusable Project Card Component to keep it modular
-const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
+const ProjectCard: React.FC<{ 
+  project: Project; 
+  onOpenCaseStudy: (id: number) => void;
+}> = ({ project, onOpenCaseStudy }) => {
   return (
     <div className="project-card">
       <div className="project-thumbnail-hold">
         <img 
           src={project.thumbnail} 
           className="project-thumbnail" 
-          alt={`${project.title} Preview`} 
+          alt={`Visual representation of ${project.title} showing its core functionality`} 
         />
       </div>
       <div className="project-info">
         <h3 className="project-card-title">{project.title}</h3>
         <p className="project-card-desc">{project.description}</p>
+        
+        {/* Tech Stack Tags */}
+        <div className="project-tags">
+          {project.tags.map((tag, idx) => (
+            <span className="project-tag" key={idx}>{tag}</span>
+          ))}
+        </div>
+
         <div className="project-card-links">
+          <button 
+            className="project-card-link-btn" 
+            onClick={() => onOpenCaseStudy(project.id)}
+          >
+            <svg 
+              width="16" 
+              height="16" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2.5" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            Case Study
+          </button>
+          
           <a 
             href={project.repoUrl} 
             target="_blank" 
@@ -96,6 +135,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
 export const FeaturedProjects: React.FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [activeCaseStudyId, setActiveCaseStudyId] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   // Parallax cloud scroll bindings
@@ -154,13 +194,13 @@ export const FeaturedProjects: React.FC = () => {
         src="/cloud.png" 
         className="parallax-cloud cloud-ur" 
         style={{ y: cloud1Y }}
-        alt="Background Cloud"
+        alt="Visual element representing a background cloud"
       />
       <motion.img 
         src="/cloud.png" 
         className="parallax-cloud cloud-ll" 
         style={{ y: cloud2Y }}
-        alt="Background Cloud"
+        alt="Visual element representing a background cloud"
       />
 
       <div className="projects-container">
@@ -170,7 +210,7 @@ export const FeaturedProjects: React.FC = () => {
             <img 
               src="/enchantedbook.png" 
               className="projects-book-accent" 
-              alt="Enchanted Book Accent" 
+              alt="Decorative Minecraft Enchanted Book" 
             />
             <h2 className="projects-title">Featured <span>Showcase</span></h2>
           </div>
@@ -191,7 +231,7 @@ export const FeaturedProjects: React.FC = () => {
               animate="breathing"
               custom={index}
             >
-              <ProjectCard project={project} />
+              <ProjectCard project={project} onOpenCaseStudy={setActiveCaseStudyId} />
             </motion.div>
           ))}
 
@@ -213,7 +253,7 @@ export const FeaturedProjects: React.FC = () => {
                   custom={index + 2}
                   style={{ height: "100%" }}
                 >
-                  <ProjectCard project={project} />
+                  <ProjectCard project={project} onOpenCaseStudy={setActiveCaseStudyId} />
                 </motion.div>
               </motion.div>
             ))}
@@ -238,6 +278,14 @@ export const FeaturedProjects: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Case Study Modal portal overlay */}
+      {activeCaseStudyId !== null && (
+        <CaseStudyModal 
+          projectId={activeCaseStudyId} 
+          onClose={() => setActiveCaseStudyId(null)} 
+        />
+      )}
     </section>
   );
 };
