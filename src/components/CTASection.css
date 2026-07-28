@@ -1,0 +1,161 @@
+.cta-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #000000;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 2rem;
+  z-index: 1;
+}
+
+/* Parallax Background Image */
+.cta-bg-image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 180%;
+  top: -40%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  filter: saturate(0.8) brightness(0.6);
+}
+
+/* Soft gradient overlay blending the top edge */
+.cta-overlay-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 25%;
+  background: linear-gradient(to bottom, #000000 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cta-overlay-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 15%;
+  background: linear-gradient(to top, #000000 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Card Wrapper & Mascot alignment */
+.cta-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  z-index: 2;
+  margin-top: 40px; /* offset to allow space for mascot */
+}
+
+/* Mascot Sitting on Top */
+.cta-mascot {
+  position: absolute;
+  top: -108px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 135px;
+  height: auto;
+  z-index: 15;
+  pointer-events: none;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.95));
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Mascot slight reaction when hovering card */
+.cta-card-wrapper:hover .cta-mascot {
+  transform: translateX(-50%) translateY(-6px) scale(1.03);
+}
+
+/* Content Styling */
+.cta-card-inner {
+  text-align: center;
+}
+
+.cta-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #ff5722;
+  margin-bottom: 1.25rem;
+}
+
+.cta-headline {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0 0 1.25rem 0;
+  letter-spacing: -0.01em;
+}
+
+.cta-paragraph {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  margin: 0 0 2.25rem 0;
+}
+
+/* Contact Links Separated by Bullets */
+.cta-links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+}
+
+.cta-link {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 0.25rem 0.5rem;
+}
+
+.cta-link:hover {
+  color: #ff5722;
+}
+
+.cta-bullet {
+  color: rgba(255, 87, 34, 0.4);
+  font-size: 0.8rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Mobile Responsive Contact Link wrapping logic */
+@media (max-width: 480px) {
+  .cta-links-container {
+    justify-content: center;
+  }
+  
+  /* Hide the 3rd bullet right before the last link */
+  .cta-bullet:nth-of-type(3) {
+    display: none;
+  }
+  
+  /* Force the last link (Instagram) onto its own centered row */
+  .cta-links-container .cta-link:last-of-type {
+    flex-basis: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}

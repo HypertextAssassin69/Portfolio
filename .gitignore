@@ -1,0 +1,42 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Virtual environments
+.venv/
+__pycache__/
+venv/
+ENV/
+
+# Python scripts and raw assets
+*.py
+*_raw.jpg
+*table.png
+*Portal.png
+lamma.png
+llama-nobg.png
+nether-portal-nobg.png
+enchanting-table-nobg.png
+recovery-codes-vercel.txt
+
