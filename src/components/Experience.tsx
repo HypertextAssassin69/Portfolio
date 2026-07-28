@@ -11,7 +11,7 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
-    year: "2022 - Present",
+    year: "2025 - Present",
     role: "B.Tech Candidate in Electrical Engineering",
     organization: "Indian Institute of Technology (IIT) Mandi",
     details: [
