@@ -2,7 +2,7 @@
 
 Welcome to my interactive developer portfolio. I am an Electrical Engineering student at **IIT Mandi**, working at the intersection of hardware prototyping, deep learning, quantitative finance, and automated video generation.
 
-👉 **[View Live Site](https://github.com/HypertextAssassin69/Portfolio)** *(or add your custom Vercel link here)*
+👉 **[View Live Site](https://portfolio-one-gamma-9jfsw6tki1.vercel.app)**
 
 ---
 

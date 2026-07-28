@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-one-gamma-9jfsw6tki1.vercel.app/sitemap.xml
