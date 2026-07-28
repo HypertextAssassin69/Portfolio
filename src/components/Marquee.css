@@ -49,11 +49,12 @@
   height: 120px;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .marquee-track {
-  width: 100%;
+  width: calc(100% - 180px);
+  margin: 0 auto;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -124,23 +125,21 @@
 }
 
 .portal-left {
-  left: -20px;
+  left: 40px;
 }
 
 .portal-right {
-  right: -20px;
+  right: 40px;
   transform: translateY(-50%) scaleX(-1); /* naturally mirrored by default */
 }
 
 /* Modifier class: mirrors frame positions and properties for the reversed variant */
 .is--reversed-marquee .portal-left {
-  left: -10px;
   transform: translateY(-50%) scaleX(-1);
   filter: drop-shadow(0 0 20px rgba(255, 87, 34, 0.4)); /* orange fire glow for reversed row */
 }
 
 .is--reversed-marquee .portal-right {
-  right: -10px;
   transform: translateY(-50%) scaleX(1);
   filter: drop-shadow(0 0 20px rgba(255, 87, 34, 0.4));
 }
