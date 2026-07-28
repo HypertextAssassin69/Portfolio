@@ -22,18 +22,18 @@ const timelineData: TimelineItem[] = [
     color: "#ff5722"
   },
   {
-    year: "2023 - Present",
-    role: "Telemetry & Firmware Lead (Team Deimos)",
+    year: "2026 - Present",
+    role: "Life Sciences Team Member (Team Deimos)",
     organization: "IIT Mandi Student Rover Team",
     details: [
-      "Leading hardware telemetry scripting and sensor node sync routines on Raspberry Pi.",
-      "Configuring Altium PCB layouts for board microcontroller clusters and I2C/SPI sensor interfaces.",
-      "Synchronizing real-time IMU, GPS, and environmental metrics to prevent data latency during remote navigation."
+      "Configuring and calibrating biological and environmental testing sensors for rover soil analysis.",
+      "Interfacing chemical sensor hardware with central telemetry lines using microcontroller interfaces.",
+      "Assisting in establishing automated data pipelines for real-time soil and moisture readings."
     ],
     color: "#aa3bff"
   },
   {
-    year: "2023 - Present",
+    year: "2024 - Present",
     role: "Open Source Software & Research Developer",
     organization: "GitHub / Personal Work",
     details: [
@@ -55,7 +55,7 @@ export const Experience: React.FC = () => {
           <span className="experience-eyebrow">Milestones</span>
           <h2 className="experience-title">Academic & <span>Project Journey</span></h2>
           <p className="experience-desc">
-            A chronological timeline of my B.Tech career at IIT Mandi, student rover leadership, 
+            A chronological timeline of my B.Tech career at IIT Mandi, student rover team involvement, 
             and algorithmic software development milestones.
           </p>
         </div>
