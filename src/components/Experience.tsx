@@ -26,9 +26,9 @@ const timelineData: TimelineItem[] = [
     role: "Life Sciences Team Member (Team Deimos)",
     organization: "IIT Mandi Student Rover Team",
     details: [
-      "Configuring and calibrating biological and environmental testing sensors for rover soil analysis.",
-      "Interfacing chemical sensor hardware with central telemetry lines using microcontroller interfaces.",
-      "Assisting in establishing automated data pipelines for real-time soil and moisture readings."
+      "Training a CNN in PyTorch to classify picrite, basal, and basalt rock samples for rover geological analysis.",
+      "Integrating soil moisture, temperature, and gas concentration sensors via I2C/SPI on Raspberry Pi with concurrent polling and packet buffering.",
+      "Building a real-time telemetry pipeline to stream life-sciences sensor data to the rover dashboard during traversal."
     ],
     color: "#aa3bff"
   },

@@ -40,11 +40,11 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    title: "RPi Sensors (Team Deimos)",
-    description: "A hardware-level library for reading and synchronizing environmental sensors with Raspberry Pi, built for the Team Deimos rover at IIT Mandi.",
+    title: "Team Deimos — Life Sciences",
+    description: "Built a CNN model to classify picrite, basal, and basalt rock samples for rover geological analysis. Integrated multi-sensor arrays (IMU, moisture, temperature, gas) via Raspberry Pi for real-time Life Sciences telemetry.",
     thumbnail: "/project_sensor.png",
     repoUrl: "https://github.com/Team-Deimos-IIT-Mandi/Rpi_Sensors",
-    tags: ["C++", "Raspberry Pi", "I2C / SPI", "POSIX Threads"]
+    tags: ["Python", "CNN / PyTorch", "Raspberry Pi", "I2C / SPI", "Life Sciences"]
   },
   {
     id: 5,

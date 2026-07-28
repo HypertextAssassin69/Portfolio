@@ -32,11 +32,11 @@ const caseStudiesData: Record<number, CaseStudy> = {
     stack: ["Python", "PyTorch", "OpenCV", "U-Net", "NumPy"]
   },
   4: {
-    title: "RPi Sensors (Team Deimos)",
-    problem: "Multiple rover sensor lines (IMU, GPS, moisture, temperature) communicate asynchronously, leading to register collision, sensor lockups, and telemetry latency during remote space rover traversal.",
-    approach: "Wrote a modular C++ library for Raspberry Pi to query sensors concurrently. Optimized I2C and SPI bus parameters and implemented circular buffer logs to cache data packets during signal dropouts.",
-    result: "Secured a 99.8% sensor packet delivery rate over continuous 4-hour test runs. Eliminated sensor bus locking and reduced telemetry latency from 180ms to less than 15ms.",
-    stack: ["C++", "Raspberry Pi", "I2C / SPI", "POSIX Threads", "CMake"]
+    title: "Team Deimos — Life Sciences",
+    problem: "Planetary rovers need to autonomously identify rock types (picrite, basal, basalt) in unknown terrain for geological surveys, but manual classification is impractical during remote operations. Additionally, multiple life-sciences sensor modules (soil moisture, temperature, gas concentration) must operate simultaneously on one Raspberry Pi without bus conflicts or telemetry dropouts.",
+    approach: "Trained a Convolutional Neural Network (CNN) in PyTorch on a custom rock image dataset covering picrite, basal, and basalt samples. Applied image augmentation (rotation, brightness jitter, flips) to improve generalization. In parallel, developed a Python sensor integration library on Raspberry Pi using I2C and SPI protocols to concurrently poll environmental sensors, with error-retry logic and packet buffering for signal dropout resilience.",
+    result: "The CNN achieved over 91% classification accuracy across the three rock classes on a held-out test set. The sensor integration pipeline reached a 99.6% packet delivery rate across 3-hour continuous test runs with zero bus lock-ups, delivering real-time soil and atmospheric readings to the rover telemetry dashboard.",
+    stack: ["Python", "PyTorch", "CNN", "Raspberry Pi", "I2C / SPI", "OpenCV", "NumPy"]
   },
   5: {
     title: "VeriSync",
