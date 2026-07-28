@@ -220,11 +220,14 @@ export const FeaturedProjects: React.FC = () => {
           </AnimatePresence>
         </div>
 
-        {/* Custom project-specific marquee repeating pattern */}
-        <div style={{ margin: '3.5rem 0' }}>
-          <Marquee direction="right" keywords={projectKeywords} />
-        </div>
+      </div>
 
+      {/* Custom project-specific marquee repeating pattern (now full-bleed!) */}
+      <div style={{ margin: '4.5rem 0' }}>
+        <Marquee direction="right" keywords={projectKeywords} />
+      </div>
+
+      <div className="projects-container">
         {/* View More / View Less Toggle Pill */}
         <div className="projects-action-wrap">
           <button className="view-more-btn" onClick={handleToggleExpand}>
